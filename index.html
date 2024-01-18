@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preentrega3</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" type="imagen/x-icon" href="img/favicon.png">
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+
+    <main>
+        <h1 class="h2-cardIndex"> Linea Ibupirac VL </h2>
+
+        <section>
+
+
+                <div id="contenedorProductos"></div> 
+
+                <div class="carro">
+
+                    <div id="carrito" class="divCarrito">
+                        <div>
+                            <h4 class="tituloCarro">Mi carrito🛒</h4>
+                            
+                            <p>Productos añadidos: <span id="productosAñadidos" class="productosAñadidos">0</span></p>
+                            <p>Total: <span id="totalCarrito" class="totalCarrito">$0,00</span></p>
+                            
+                            <label for="codigoDescuento" class="labelDescuento">Aplicar cupón al final de la compra:</label>
+                            <input type="text" id="codigoDescuento" placeholder="Ingrese código de descuento">
+                            
+                            <button id="btnDescuento" onclick="aplicarDescuento()">Aplicar</button>
+                            
+                            <p>Total con descuento: <span id="totalConDescuento" class="totalConDescuento">$0,00</span></p>
+                            
+                            <button>Finalizar compra</button>
+                    </div>
+                </div>
+                <div>
+                    <ul id="listaCarrito" class="listaCarrito"></ul>
+                </div>
+
+            </div>
+                
+        </section>
+    </main>
+    <footer>
+        <h3>Preentrega3 - <span class="spanLogo"><img class="logoCoderhouse" src="img/logoCoderhouse.png"
+                    alt="Logo de Coderhouse"></span>
+        </h3>
+    </footer>
+
+
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
