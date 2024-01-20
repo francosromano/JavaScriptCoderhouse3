@@ -16,40 +16,41 @@
 
 
     <main>
-        <h1 class="h2-cardIndex"> Linea Ibupirac VL </h2>
+        <h1 class="h1-cardIndex"> Linea Ibupirac VL </h1>
 
-            <section>
+        <section>
 
 
-                <div id="contenedorProductos"></div>
+            <div id="contenedorProductos"></div>
 
-                <div class="carro">
+            <div class="carro">
 
-                    <div id="carrito" class="divCarrito">
-                        <div>
-                            <h4 class="tituloCarro">Mi carrito🛒</h4>
-
-                            <p>Productos añadidos: <span id="productosAñadidos" class="productosAñadidos">0</span></p>
-                            <p>Total: <span id="totalCarrito" class="totalCarrito">$0,00</span></p>
-
-                            <label for="codigoDescuento" class="labelDescuento">Aplicar cupón al final de la
-                                compra:</label>
-                            <input type="text" id="codigoDescuento" placeholder="Ingrese código de descuento">
-
-                            <button id="btnDescuento" onclick="aplicarDescuento()">Aplicar</button>
-
-                            <p>Descuento: <span id="descuentoCarrito" class="descuentoCarrito">$0,00</span></p>
-
-                            <p>Total con descuento: <span id="totalConDescuento" class="totalConDescuento">$0,00</span>
-                            </p>
-
-                            <button>Finalizar compra</button> <button id="vaciarCarrito" onclick="vaciarCarrito()">Vaciar carrito</button>
-                        </div>
-                    </div>
+                <div id="carrito" class="divCarro">
                     <div>
-                        <ul id="listaCarrito" class="listaCarrito"></ul>
+                        <h4 class="tituloCarro">Mi carrito🛒</h4>
+
+                        <p>Productos añadidos: <span id="productosAñadidos" class="productosAñadidos"></span></p>
+                        <p>Total: <span id="totalCarrito" class="totalCarrito"></span></p>
+
+                        <label for="codigoDescuento" class="labelDescuento">Aplicar cupón al final de la
+                            compra:</label>
+                        <input type="text" id="codigoDescuento" placeholder="Ingrese código de descuento">
+
+                        <button id="btnDescuento" onclick="aplicarDescuento()">Aplicar</button>
+
+                        <p>Descuento: <span id="descuentoCarrito" class="descuentoCarrito">$0,00</span></p>
+
+                        <p>Total con descuento: <span id="totalConDescuento" class="totalConDescuento"></span>
+                        </p>
+
+                        <button>Finalizar compra</button> <button id="vaciarCarrito" onclick="vaciarCarrito()">Vaciar
+                            carrito</button>
                     </div>
-                    <!-- <div id="formularioCuenta">
+                </div>
+                <div>
+                    <ul id="listaCarrito" class="listaCarrito"></ul>
+                </div>
+                <!-- <div id="formularioCuenta">
                         <form >
                             <h2>Crea tu cuenta</h2>
 
@@ -68,9 +69,9 @@
                         </form>
                     </div> -->
 
-                </div>
+            </div>
 
-            </section>
+        </section>
     </main>
     <footer>
         <h3>Preentrega3 - <span class="spanLogo"><img class="logoCoderhouse" src="img/logoCoderhouse.png"

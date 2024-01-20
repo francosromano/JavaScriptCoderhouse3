@@ -1,95 +1,5 @@
-body{
-    background-color: bisque;
-}
-footer{
-    text-align: center;
-    background-color: lightcoral;
-    margin-bottom: 0px;
-}
-
-h3{
-    font-size: 50px ;
-}
-
-.logoCoderhouse{
-    width: 20%;
-    padding: 10px;
-    justify-content: center;
-}
-
-.h2-cardIndex{
-    display: flex;
-    justify-content: center;
-    
-}
-
-.divCarrito{
-    border: 5px solid lightseagreen;
-    width: max-content;
-    margin-top: 10px;
-    padding: 5px;
-    box-shadow: 2px px rgba(173, 216, 230, 0.332);
-    background-color: #fafafa;
-   }
-
-.productosAñadidos, .totalCarrito, #totalConDescuento, .descuentoCarrito{
-    font-weight: bold;
-}
-
-#codigoDescuento{
-    width: 200px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: lightgrey;
-    color: black;
-    font-weight: 600;
-    padding: 2px;
-}
-
-#contenedorProductos{
-    display: flex;
-    /* flex-wrap: wrap; */
-    justify-content: center;
-    gap: 30px;
-    
-    
-}
-.card{
-    margin-top: 20px;
-    width: 400px;
-    height: 450px;
-    border: 1px solid rgba(0, 0, 0, 0.197);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.197);
-    border-radius: 10px;
-    background-color: lightcyan;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;    
-    transition: all 0.5s;
-}
-
-.card-img{
-    width: 100%;
-    height: 50%;
-    margin-top: 10px;
-    object-fit: contain;
-
-}
-.card:hover{
-    width: 500px;
-}
-
-.h2-card{
-    font-size: 20px;
-}
-
-.precio-card{
-    font-weight:bold;
-    font-size: 20px;
-}
-
-button{
+/*************************** GENERAL  ***************************/
+button {
     background-color: rgba(30, 80, 173, 0.774);
     color: #fafafa;
     border: 1px solid black;
@@ -101,21 +11,30 @@ button{
     border-radius: 25px;
 }
 
-button:hover{
+button:hover {
     background-color: rgba(40, 95, 197, 0.774);
 }
 
 button:active {
     background-color: rgba(22, 63, 139, 0.774);
-}  
+}
 
+/*************************** BODY ***************************/
+body {
+    background-color: bisque;
+}
 
+.h1-cardIndex {
+    display: flex;
+    justify-content: center;
 
-.carro{
+}
+
+.carro {
     display: flex;
 }
 
-.liCarrito{
+.divCarrito {
     font-weight: 300;
     font-size: 20px;
     background-color: lightcyan;
@@ -123,15 +42,114 @@ button:active {
     margin: 2px;
 }
 
+.divCarro {
+    border: 5px solid lightseagreen;
+    width: max-content;
+    margin-top: 10px;
+    padding: 5px;
+    box-shadow: 2px px rgba(173, 216, 230, 0.332);
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+}
 
-#formularioCuenta{
+#vaciarCarrito {
+    background-color: red;
+}
+
+.productosAñadidos,
+.totalCarrito,
+#totalConDescuento,
+.descuentoCarrito {
+    font-weight: bold;
+}
+
+#codigoDescuento {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: lightgrey;
+    color: black;
+    font-weight: 600;
+    padding: 2px;
+}
+
+#contenedorProductos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.botonEliminar {
+    border: none;
+    background-color: transparent;
+}
+
+.botonEliminar:hover {
+    background-color: lightgrey;
+}
+
+.card {
+    margin-top: 20px;
+    width: 400px;
+    height: 450px;
+    border: 1px solid rgba(0, 0, 0, 0.197);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.197);
+    border-radius: 10px;
+    background-color: lightcyan;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.card-img {
+    width: 100%;
+    height: 50%;
+    margin-top: 10px;
+    object-fit: contain;
+
+}
+
+.card:hover {
+    width: 500px;
+}
+
+.h2-card {
+    font-size: 20px;
+}
+
+.precio-card {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/************************** FOOTER   ************************/
+footer {
+    text-align: center;
+    background-color: lightcoral;
+    margin-bottom: 0px;
+}
+
+h3 {
+    font-size: 50px;
+}
+
+.logoCoderhouse {
+    width: 20%;
+    padding: 10px;
+    justify-content: center;
+}
+
+
+
+/************************** PROXIMOS AGREGADOS   ************************/
+/* #formularioCuenta {
     background-color: lightgreen;
     padding: 20px;
     margin: 20px;
     border: 1px black solid;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 123);
-}
-
-#vaciarCarrito{
-    background-color: red;
-}
+} */
