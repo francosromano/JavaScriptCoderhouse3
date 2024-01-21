@@ -156,6 +156,7 @@ class Producto {
       this.nombre = nombre;
       this.precio = precio;
       this.img = img;
+      this.cantidad = 0;
     }
   }
   
@@ -181,15 +182,18 @@ arrayProductos.forEach(producto => {
   div.className = "card";
   div.innerHTML = `
     <img class="card-img" src="${producto.img}" alt="">
-    <div>
+    <div class="divProducto">
       <h2 class="h2-card">${producto.nombre}</h2>
       <p class="precio-card">$${producto.precio}</p>
-      <button id="btnCompra" onclick="agregarCarrito({ precio: ${producto.precio}, nombre: '${producto.nombre}' })">Comprar</button>
+      <div class="divCantidad">
+        <input type="text" id="cantidadProducto-${producto.nombre}" class="cantidadProductos">
+      </div>
+      <button onclick="agregarCantidad('${producto.nombre}')">Agregar al carrito</button>
     </div>
   `;
+
   contenedorProductos.appendChild(div);
 });
-
 
 /***************************     EVENTOS DEL CARRITO                      *********************/
 
@@ -200,17 +204,32 @@ const CARRITO_COMPRAS = {
 
 /***************************        EVENTOS EN TOTAL DEL CARRITO          *********************/
                                                   
-function agregarCarrito(producto) {
-  CARRITO_COMPRAS.productos.push({ precio: producto.precio, nombre: producto.nombre });
-  CARRITO_COMPRAS.total += producto.precio;
+function agregarCarrito(producto, cantidad) {
+  const cantidadProducto = parseInt(cantidad) || 1;
 
-  alert(`${producto.nombre} 🛒 ¡Agregado al carrito!`);
+
+  
+  for (let i = 0; i < cantidadProducto; i++) {
+    CARRITO_COMPRAS.productos.push({ precio: producto.precio, nombre: producto.nombre });
+    CARRITO_COMPRAS.total += producto.precio;
+
+  }
+  
+
+  alert(`🛒 ¡Agregaste ${cantidadProducto} ${producto.nombre}  al carrito!`);
   console.log(CARRITO_COMPRAS);
-
-
 
   actualizarCarrito();
 }
+
+function agregarCantidad(nombreProducto) {
+  const cantidadProducto = document.getElementById(`cantidadProducto-${nombreProducto}`).value;
+
+  agregarCarrito({ precio: arrayProductos.find(producto => producto.nombre === nombreProducto).precio, nombre: nombreProducto }, cantidadProducto);
+
+  document.getElementById(`cantidadProducto-${nombreProducto}`).value = "";
+}
+
 
 
 /***************************        FUNCION QUE ACTUALIZA CARRITO         *********************/
@@ -281,22 +300,22 @@ function aplicarDescuento() {
 function actualizarListaCarrito() {
   const listaCarrito = document.getElementById("listaCarrito");
 
-  // Limpiamos el contenido actual de la lista
   listaCarrito.innerHTML = "Productos en el carrito:";
 
   CARRITO_COMPRAS.productos.forEach(producto => {
     const div = document.createElement("div");
     div.className = "divCarrito";
 
-    
     const botonEliminar = document.createElement("button");                                         // Creamos el botón
     botonEliminar.className ="botonEliminar"
     botonEliminar.textContent = "❌";
 
     botonEliminar.addEventListener("click", () => eliminarProducto(producto));
-
-    div.innerHTML = `${producto.nombre} `;
+    
+    div.innerHTML = ` ${producto.nombre} `;
+    
     div.appendChild(botonEliminar);
+
 
   
     listaCarrito.appendChild(div);
