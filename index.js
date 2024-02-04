@@ -1,179 +1,74 @@
-// /*********************                        Alert de ingreso                       ************************ */
-// /*                                (Variables + constantes + Do..While + Condicionales)                        */
-
-const COMISION = 49810;
-let continuar
-
-do{
-    let ingreso = Number(prompt("¡Hola!\ Ingrese número de comisión para ingresar:"));
-
-    if(ingreso===COMISION){
-        alert("Bienvenido Milton Salazar!")
-        break;
-    }else{
-        alert("Número de comisión incorrecto")
-        continuar = prompt("¿Desea seguir intentando?").toLowerCase()
-        if (continuar === "no"){
-            alert("¡En otra ocasión lo intentaremos")
-    }
-}
-} while(continuar==="si");
-
-// /*********************************             Calculadora                   ************************************/
-// /*                                         (Funciones + Switch)                                                 */
-
-
-function sumar() {
-    const NUMERO_A = Number(prompt("Ingrese el primer número para sumar"));
-    const NUMERO_B = Number(prompt("Ingrese el segundo número para sumar"));
-    const RESULTADO = NUMERO_A + NUMERO_B
-    alert(NUMERO_A + " + " + NUMERO_B + " = " + RESULTADO)
-    console.log("El resultado de " + NUMERO_A + " + " + NUMERO_B + " es " + RESULTADO)
-}
-
-function restar() {
-    const NUMERO_A = Number(prompt("Ingrese el primer número para restar"));
-    const NUMERO_B = Number(prompt("Ingrese el segundo número para restar"));
-    const RESULTADO = NUMERO_A - NUMERO_B
-    alert(NUMERO_A + " - " + NUMERO_B + " = " + RESULTADO)
-    console.log("El resultado de " + NUMERO_A + " - " + NUMERO_B + " es " + RESULTADO)
-}
-
-function multiplicar() {
-    const NUMERO_A = Number(prompt("Ingrese el primer número para multiplicar"));
-    const NUMERO_B = Number(prompt("Ingrese el segundo número para multiplicar"));
-    const RESULTADO = NUMERO_A * NUMERO_B
-    alert(NUMERO_A + " x " + NUMERO_B + " = " + RESULTADO)
-    console.log("El resultado de " + NUMERO_A + " x " + NUMERO_B + " es " + RESULTADO)
-}
-
-function dividir() {
-    const NUMERO_A = Number(prompt("Ingrese el primer número para dividir"));
-    const NUMERO_B = Number(prompt("Ingrese el segundo número para dividir"));
-    const RESULTADO = NUMERO_A / NUMERO_B
-    alert(NUMERO_A + " / " + NUMERO_B + " = " + RESULTADO)
-    console.log("El resultado de " + NUMERO_A + " / " + NUMERO_B + " es " + RESULTADO)
-}
-
-function calcularIVA() {
-    const NUMERO_A = Number(prompt("Ingrese el precio para calcular IVA (21%)"))
-    const RESULTADO = NUMERO_A * 1.21
-    alert("El precio con IVA es de $" + RESULTADO)
-    console.log("El resultado del calculo del IVA es de "+ RESULTADO)
-}
-
-function calcularDescuento() {
-    const NUMERO_A = Number(prompt("Ingrese el precio para calcular el descuento (15%)"))
-    const RESULTADO = NUMERO_A - (NUMERO_A * 0.15)
-    alert("El precio con descuento es de $" + RESULTADO)
-    console.log("El resultado del calculo del descuento es de "+ RESULTADO)
-}
-
-do {
-    opcion = Number(prompt("¿Qué operación quiere realizar? \n 1-Suma ➕ \n 2-Resta ➖ \n 3-Multiplicación ✖️ \n 4-División ➗ \n 5-Calcular IVA (21%) 🖨️ \n 6-Calcular descuento (15%) 🤑 \n 7-Salir ⚠️"))
-
-    switch (opcion) {
-        case 1:
-            sumar()
-            break;
-        case 2:
-            restar()
-            break;
-        case 3:
-            multiplicar()
-            break;
-        case 4:
-            dividir()
-            break;
-        case 5:
-            calcularIVA() 
-            break;
-        case 6:
-            calcularDescuento()
-            break;
-        case 7: 
-            alert("Muchas gracias por participar👋");
-            break;
-        default:
-            alert("Opción incorrecta, elegí una opción disponible");
-            break;
-    }
-}while (opcion !==7)
-
-alert("🚩En el caso de haber realizado alguna operación, los resultados quedaron grabados en la consola.👨🏻‍💻 \n¡Hasta la próxima!👋")
-
-
-// /*************************************       JUEGO: CODIGO DE DESCUENTO              *****************************/
-// /*                                         (Condicionales + Metodo Random)                                       */
-
+/*************************************       JUEGO: CODIGO DE DESCUENTO              *****************************/
+/*                                         (Condicionales + Metodo Random)                                       */
 let intentosRestantes = 3;
 
-do {
-  let eleccionDelJugador = prompt("Ingrese su número entre 1 y 5, acertá el número y obtené un código de descuento. Tiene 3 intentos");
-  eleccionDelJugador = parseInt(eleccionDelJugador)
+function jugar() {
+  const entradaUsuario = document.getElementById("entradaUsuario").value;
+  const botonJugar = document.getElementById("botonJugar");
+  const numeroGanador = Math.floor(Math.random() * 5) + 1;
 
-  let numeroGanador = Math.floor(Math.random() * 5) + 1;
-  console.log("Número seleccionado: ", eleccionDelJugador);
-  console.log("Número ganador: ", numeroGanador);
-
-  if (isNaN(eleccionDelJugador) || eleccionDelJugador < 1 || eleccionDelJugador > 5) {            //Si pone un número o valor incorrecto..
-    alert("Por favor, ingrese un número entre 1 y 5")
-    }
-  else if (eleccionDelJugador === numeroGanador){                                                 //Si pone el número ganador...
-    alert("🔥 ¡Felicitaciones, acertaste! 🔥 El código de descuento es 'GaneElDesafio20%OFF'");
-    break;
-    }
-  else {                                                                                          //Si no acierta el número ganador..
-    if (intentosRestantes > 1) {                                                                  //.. y todavía tienen intentos disponibles..
-    
-       do {                                                                                        //Hará...
-       continuar = prompt("No coincide 😥\n¿Desea seguir intentando? (si/no)").toLowerCase();     //Preguntar al usuario si quiere seguir.
-  
-       if (continuar !== "si" && continuar !== "no") {                                           //Si el usuario no selecciona "si" ni  "no"..
-        alert("Por favor, ingrese 'si' o 'no'.");
-       }
-      } while (continuar !== "si" && continuar !== "no");                                           //..vuelve a preguntar si quiere seguir 
-    
-      if (continuar === "no") {                                                                     //Si el usuario selecciona "no"..
-       alert("¡En otra ocasión lo intentaremos! 👋");
-       break;
-      }
-    }
-    else {                                                                                        //Si vuelve a errar y no hay más intentos..
-      alert("No acertaste😥\nSe acabaron los intentos. ¡Mejor suerte la próxima vez! 👋");
-      break;
+  if (isNaN(entradaUsuario) || entradaUsuario < 1 || entradaUsuario > 5) {
+    Toastify({
+      text: "Por favor, ingrese un número entre 1 y 5"
+    }).showToast()
+  } else if (parseInt(entradaUsuario) === numeroGanador) {
+    Toastify({
+      text: "🔥¡Felicitaciones, acertaste! El código de descuento es 'GaneElDesafio20%OFF'🔥"
+    }).showToast()
+  } else {
+    if (intentosRestantes > 1) {
+      Swal.fire({
+        title: 'No coincide 😥',
+        text: '¿Desea seguir intentando?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (!result.value) {
+          Toastify({
+            text: "¡En otra ocasión lo intentaremos! 👋"
+          }).showToast();
+        }
+      });
+    } else {
+      Toastify({
+        text: "No acertaste😥\n Se acabaron los intentos. ¡Mejor suerte la próxima vez! 👋"
+      }).showToast();
     }
 
-  intentosRestantes--;                                                                                //Descontará un intento por cada fallo.
+    intentosRestantes--;
+  } if (intentosRestantes === 0) {
+    entradaUsuario.disabled = true;
+    botonJugar.disabled = true;
+  }
 }
-
-} while (intentosRestantes > 0)                                                        //Repetirá el bucle mientras haya intentos disponibles
 
 /*************************************         CATALOGO DE PRODUCTOS                 *****************************/
 /*                                          (Constructor + Metodo Push)                                          */
 class Producto {
-    constructor(nombre, precio, img) {
-      this.nombre = nombre;
-      this.precio = precio;
-      this.img = img;
-      this.cantidad = 0;
-    }
+  constructor(nombre, precio, img, cantidad) {
+    this.nombre = nombre;
+    this.precio = precio;
+    this.img = img;
+    this.cantidad = cantidad;
   }
-  
-  
-  const PROD1 = new Producto("Ibupirac 400 x 12 caps", 1610 , "img/ibupirac400x12caps.png")
-  const PROD2 = new Producto("Ibupirac Plus Max x10cmpr", 1670, "img/ibupiracPlusMax.png")
-  const PROD3 = new Producto("Ibupirac Fem x10cmpr", 1320 , "img/ibupiracFem.png")
-  const PROD4 = new Producto("Ibupirac Antigripal x10cmpr", 3100, "img/ibupiracAntigripal.png")
-  
-  const arrayProductos = [PROD1, PROD2, PROD3, PROD4];
+}
+
+
+const PROD1 = new Producto("Ibupirac 400 x 12 caps", 1610, "img/ibupirac400x12caps.png")
+const PROD2 = new Producto("Ibupirac Plus Max x10cmpr", 1670, "img/ibupiracPlusMax.png")
+const PROD3 = new Producto("Ibupirac Fem x10cmpr", 1320, "img/ibupiracFem.png")
+const PROD4 = new Producto("Ibupirac Antigripal x10cmpr", 3100, "img/ibupiracAntigripal.png")
+
+const arrayProductos = [PROD1, PROD2, PROD3, PROD4];
 
 arrayProductos.push(
   { nombre: "Ibupirac 2% jbe x90ml", precio: 2450, img: "img/ibupiracJbe.png" },
 )
 
 /***************************           CARDS EN HTML DESDE JS             *********************/
-/*                            (DOM + Metodos ForEach y AppendChild)                           */ 
+/*                            (DOM + Metodos ForEach y AppendChild)                           */
 
 const contenedorProductos = document.getElementById("contenedorProductos");
 
@@ -186,9 +81,9 @@ arrayProductos.forEach(producto => {
       <h2 class="h2-card">${producto.nombre}</h2>
       <p class="precio-card">$${producto.precio}</p>
       <div class="divCantidad">
-        <input type="text" id="cantidadProducto-${producto.nombre}" class="cantidadProductos">
+        <input type="number" id="cantidadProducto-${producto.nombre}" class="cantidadProductos" min="0" max="1000">
       </div>
-      <button onclick="agregarCantidad('${producto.nombre}')">Agregar al carrito</button>
+      <button class="agregarAlCarritoBtn" onclick="agregarCantidad('${producto.nombre}')">Agregar al carrito</button>
     </div>
   `;
 
@@ -199,24 +94,23 @@ arrayProductos.forEach(producto => {
 
 const CARRITO_COMPRAS = {
   productos: [],
+  cantidad: 0,
   total: 0,
 };
 
 /***************************        EVENTOS EN TOTAL DEL CARRITO          *********************/
-                                                  
+
 function agregarCarrito(producto, cantidad) {
   const cantidadProducto = parseInt(cantidad) || 1;
 
 
-  
+
   for (let i = 0; i < cantidadProducto; i++) {
-    CARRITO_COMPRAS.productos.push({ precio: producto.precio, nombre: producto.nombre });
+    CARRITO_COMPRAS.productos.push({ precio: producto.precio, nombre: producto.nombre, cantidad: producto.cant });
     CARRITO_COMPRAS.total += producto.precio;
 
   }
-  
 
-  alert(`🛒 ¡Agregaste ${cantidadProducto} ${producto.nombre}  al carrito!`);
   console.log(CARRITO_COMPRAS);
 
   actualizarCarrito();
@@ -237,7 +131,7 @@ function agregarCantidad(nombreProducto) {
 function actualizarCarrito() {
   const productosAñadidos = document.getElementById("productosAñadidos");
   const totalCarrito = document.getElementById("totalCarrito");
-  
+
 
   productosAñadidos.textContent = CARRITO_COMPRAS.productos.length;
   totalCarrito.textContent = `$${CARRITO_COMPRAS.total.toFixed(2)}`;
@@ -249,10 +143,10 @@ function actualizarCarrito() {
 
 /***************************        FUNCION QUE VACIA CARRITO         *********************/
 
-function vaciarCarrito(){
+function vaciarCarrito() {
   const vaciarCarrito = document.getElementById("vaciarCarrito")
 
-  if(vaciarCarrito){
+  if (vaciarCarrito) {
     CARRITO_COMPRAS.productos = [];
     CARRITO_COMPRAS.total = 0
     totalConDescuento.innerText = "$0.00"
@@ -261,95 +155,130 @@ function vaciarCarrito(){
     descuentoAplicado = false
     localStorage.clear("cuponCargado")
     actualizarCarrito();
-    }
+  }
 }
 
 /***************************        EVENTOS EN APLICAR DESCUENTO          *********************/
-/*                          (Function + Condicionales + Acceso a NODO)                        */
+/*                     (Function + Condicionales + Acceso a NODO + Librería)                  */
 
-let descuentoAplicado = false;                                                                       //Iniciamos sin descuento aplicado
+let descuentoAplicado = false;
 const CUPON_DESCUENTO = "GaneElDesafio20%OFF";
 const totalConDescuento = document.getElementById("totalConDescuento");
 
-
 function aplicarDescuento() {
   if (descuentoAplicado) {
-    alert("¡El descuento ya se ha aplicado!");                                                        
+    Swal.fire({
+      title: "Descuento ya aplicado",
+      icon: "info",
+    });
     return;
   }
-  
-  const codigoDescuento = document.getElementById("codigoDescuento").value;                           //Accedemos a los valores del campo de descuento
 
-  if (CUPON_DESCUENTO === codigoDescuento) {                                                          //Condicional para aplicar descuento
-    const DESCUENTO = CARRITO_COMPRAS.total * 0.2;                                                    //Calculamos descuento
-    totalConDescuento.textContent = `$${(CARRITO_COMPRAS.total-DESCUENTO).toFixed(2)}`
+  const codigoDescuento = document.getElementById("codigoDescuento").value;
 
-    alert("¡Cupon válido! Descuento aplicado");                                                       //Informamos al usuario que se aplicó el descuento
-    
-    const descuentoCarrito = document.getElementById("descuentoCarrito")
-    descuentoCarrito.textContent = `$${DESCUENTO.toFixed(2)}`
+  if (CUPON_DESCUENTO === codigoDescuento) {
+    const DESCUENTO = CARRITO_COMPRAS.total * 0.2;
+    totalConDescuento.textContent = `$${(CARRITO_COMPRAS.total - DESCUENTO).toFixed(2)}`;
 
-    descuentoAplicado = true;                                                                         //Cambiamos la variable para que el descuento sea único
-    
-    actualizarCarrito();                                                                              //Actualiza el total en HTML
+    Swal.fire({
+      title: "Descuento aplicado",
+      icon: "success",
+    });
+
+    const descuentoCarrito = document.getElementById("descuentoCarrito");
+    descuentoCarrito.textContent = `$${DESCUENTO.toFixed(2)}`;
+
+    descuentoAplicado = true;
+    actualizarCarrito();
   } else {
-    alert("Cupon incorrecto");                                                                        //Informamos al usuario que aplicó un código erroneo
+    Swal.fire({
+      title: "Código de descuento incorrecto",
+      icon: "error",
+    });
   }
 }
 
 function actualizarListaCarrito() {
   const listaCarrito = document.getElementById("listaCarrito");
 
+  // Limpiamos el contenido actual de la lista
   listaCarrito.innerHTML = "Productos en el carrito:";
 
+  // Creamos un objeto para almacenar la cantidad acumulada de cada producto
+  const productosIguales = {};
+
+  // Iteramos sobre los productos en el carrito y acumulamos las cantidades
   CARRITO_COMPRAS.productos.forEach(producto => {
+    if (!productosIguales[producto.nombre]) {
+      productosIguales[producto.nombre] = {
+        producto: producto,
+        cantidad: 0
+      };
+    }
+
+    productosIguales[producto.nombre].cantidad += producto.cantidad;
+  });
+
+  // Iteramos sobre los productos acumulados y creamos las entradas en la lista
+  for (const nombreProducto in productosIguales) {
+    const productoAcumulado = productosIguales[nombreProducto];
+
     const div = document.createElement("div");
     div.className = "divCarrito";
 
-    const botonEliminar = document.createElement("button");                                         // Creamos el botón
-    botonEliminar.className ="botonEliminar"
+    const botonEliminar = document.createElement("button");
+    botonEliminar.className = "botonEliminar";
     botonEliminar.textContent = "❌";
 
-    botonEliminar.addEventListener("click", () => eliminarProducto(producto));
-    
-    div.innerHTML = ` ${producto.nombre} `;
-    
+    botonEliminar.addEventListener("click", () => eliminarProducto(productoAcumulado.producto));
+
+    // Mostramos el nombre del producto y la cantidad acumulada
+    div.innerHTML = `${productoAcumulado.cantidad} ${productoAcumulado.producto.nombre}`;
+
+
+    console.log(productoAcumulado.cantidad)
+
+
+
     div.appendChild(botonEliminar);
-
-
-  
     listaCarrito.appendChild(div);
-  });
+  }
 }
-
 /***************************        EVENTOS EN ELIMINAR PRODUCTOS         *********************/
 /*                                   (Function + Condicionales)                               */
 function eliminarProducto(producto) {
-  const index = CARRITO_COMPRAS.productos.indexOf(producto);                    //IndexOf para buscar la posición en el array
+  const index = CARRITO_COMPRAS.productos.findIndex(
+    (item) => item.nombre === producto.nombre
+  );
 
-  if (index !== -1) {                                                           //Si el indice es distinto a -1, quiere decir que existe en el array
-    CARRITO_COMPRAS.productos.splice(index, 1);                                 //SPLICE para que relacione el producto con su indice
-    
-    CARRITO_COMPRAS.total -= producto.precio
-    console.log(CARRITO_COMPRAS)
-  }
-  
-  if (descuentoAplicado) {
-    const DESCUENTO = CARRITO_COMPRAS.total * 0.2;
-    DESCUENTO.textContent = `$${(CARRITO_COMPRAS.total - totalConDescuento).  toFixed(2)}`
-    totalConDescuento.textContent = `$${(CARRITO_COMPRAS.total - DESCUENTO).toFixed(2)}`;
-  }
+  if (index !== -1) {
+    const productoEnCarrito = CARRITO_COMPRAS.productos[index];
+
+    // Reducimos la cantidad del producto
+    productoEnCarrito.cantidad -= 1;
+
+
+    // Si la cantidad es mayor a 0, actualizamos el total
+    if (productoEnCarrito.cantidad > 0) {
+      CARRITO_COMPRAS.total -= productoEnCarrito.precio;
+    } else {
+      // Si la cantidad es 0, eliminamos completamente el producto del carrito
+      CARRITO_COMPRAS.productos.splice(index, 1);
+      CARRITO_COMPRAS.total -= productoEnCarrito.precio;
+    }
 
     actualizarListaCarrito();
-    actualizarCarrito(); 
+    actualizarCarrito();
   }
+}
+
 
 
 /***************************               STORAGE                         *********************/
 
 function guardarCarritoLocalStorage() {
   localStorage.setItem("itemsCarrito", JSON.stringify(CARRITO_COMPRAS.productos));
-  localStorage.setItem("totalMiCarrito",JSON.stringify(CARRITO_COMPRAS.total))
+  localStorage.setItem("totalMiCarrito", JSON.stringify(CARRITO_COMPRAS.total))
   localStorage.setItem("totalConDescuentoCarrito", JSON.stringify(totalConDescuento.textContent))
   localStorage.setItem("cuponCargado", JSON.stringify(descuentoAplicado))
   localStorage.setItem("descuentoCargado", JSON.stringify(descuentoCarrito.textContent))
@@ -370,28 +299,184 @@ function subirCarritoLocalStorage() {
     descuentoCarrito.textContent = JSON.parse(descuentoCargadoGuardado)
 
     actualizarCarrito();
-  } 
+  }
 }
 
 subirCarritoLocalStorage();
 
+/*************************************    LIBRERIAS    ******************************************** */
+
+//Alert de productos agregados:
+const botonAgregarCarrito = document.querySelectorAll('.agregarAlCarritoBtn');
+
+botonAgregarCarrito.forEach((boton) => {
+  boton.addEventListener('click', () => {
+    const nombreProducto = boton.parentElement.querySelector('.h2-card').textContent;
+    Toastify({
+      text: `¡${nombreProducto} 🛒 Agregado al carrito! `,
+      duration: 1500,
+      gravity: top,
+      position: "right",
+      style: {
+        background: "linear-gradient(to left, #00b09b, #96c93d)"
+      }
+    }).showToast()
+
+  });
+});
+
+
+//Alert de vaciar carrito:
+
+const botonVaciarCarrito = document.getElementById("vaciarCarrito");
+
+botonVaciarCarrito.addEventListener("click", () => {
+  Swal.fire({
+    title: "¿Estás seguro?",
+    text: "No podrás deshacer esta acción",
+    icon: "warning",
+    position: "top",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Borrar todo",
+    cancelButtonText: "Cancelar",
+    backdrop: "rgba(0,0,0,0.943)"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      vaciarCarrito();                                                  //Llamamos a la funcion para vaciar
+      Swal.fire({
+        icon: "success",
+        title: "¡Listo!",
+        text: "Tus productos han sido eliminados",
+        position: "top",
+        backdrop: "rgba(0,0,0,0.943)"
+      });
+    }
+  });
+});
+
+//Alert de confirmar compra:
+
+const confirmarCompra = document.getElementById("confirmarCompra");
+const fechaCompra = new Date().toLocaleString()
+let tiempoIntervalo;
+
+confirmarCompra.addEventListener("click", () => {
+  Swal.fire({
+    title: "¿Estás seguro?",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Ir a pagar",
+    backdrop: "rgba(0,0,0,0.943)"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: `¡Compra realizada con éxito! \n Realizada: ${fechaCompra}`,
+        html: `Será redirigido a la página principal en: <b></b> `,
+        timer: 5000,
+        timeProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const temporizador = Swal.getPopup().querySelector("b");
+          tiempoRestante = setInterval(() => {
+            const tiempoRestante = Swal.getTimerLeft() / 1000;              // Pasamos el tiempo restante de milisegundos a segundos
+            temporizador.textContent = `${tiempoRestante.toFixed(1).charAt(0)}`;
+          }, 10);
+        },
+        willClose: () => {
+          clearInterval(tiempoIntervalo);
+        },
+
+        text: `Fecha de compra: ${fechaCompra}`,
+        icon: "success",
+        backdrop: "rgba(0,0,0,0.943)"
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.temporizador) {
+          console.log("I was closed by the timer");
+        }
+      });
+      vaciarCarrito()
+    }
+  });
+})
 
 
 
+/*************************************    APIs    ******************************************** */
 
+// const URL = "https://jsonplaceholder.typicode.com/posts"
 
+// const XHR = new XMLHttpRequest()
 
-
-
-
-
-/************************************************************************************************* */
-// const formularioCuenta = document.getElementById("formularioCuenta")
-// function guardarDatosCuenta(){
-//   localStorage.setItem("cuenta",JSON.stringify("formularioCuenta"))
-//   localStorage.getItem("cuenta")
-  
+// function manejador() {
+//   if (this.readyState === 4 && this.status === 200) {
+//     const DATOS = JSON.parse(this.response)
+//     console.log(DATOS)
+//     mostrarUsuarios(DATOS)
+//   }
 // }
-// guardarDatosCuenta()
 
-// guardarCarritoLocalStorage()
+// XHR.addEventListener('load', manejador)             //'LOAD' es el evento a efectuar, "manejador" es la funcion donde efectuar la solicitud
+
+// XHR.open('get', URL);                               //Trae informacion del JSON     'GET' es el evento a efectuar, URL es donde efectuar la solicitud
+
+// XHR.send();                                         //Envia solicitud
+
+// const api = document.getElementById("api")          // Creamos funcion para mostrar usuarios
+
+// function mostrarUsuarios(DATOS) {
+//   DATOS.forEach(usuario => {
+//     const li = document.createElement("li")
+//     li.textContent = `${usuario.id} - ${usuario.title} - ${usuario.body}`
+
+//     api.appendChild(li);
+
+//   });
+// }
+
+const lista = document.getElementById('api')
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then( (resp) => resp.json() )
+    .then( (data) => {
+       
+        data.forEach((post) => {
+            const li = document.createElement('div')
+            li.innerHTML = `
+                <h4>${post.title}</h4>
+                <p>${post.body}</p>
+            `
+            lista.append(li)
+        })
+    })
+
+
+
+// const URL = 'https://covid-api.com/api/reports/total?date=2023-04-15';
+// const XHR = new XMLHttpRequest();
+
+// function manejador() {
+//   if (this.readyState === 4 && this.status === 200) {
+//     const DATOS = JSON.parse(this.responseText);
+
+//     // Verificar si la propiedad 'data' está presente
+//     if (DATOS.data) {
+//       const datosCovid = DATOS.data;
+
+//       // Mostrar información de un solo día
+//       const divCovid = document.createElement("div");
+//       divCovid.textContent = `Fecha:${datosCovid.date} - Ultima actualización:${datosCovid.last_update} - Casos activos:${datosCovid.active}`;
+
+//       const API = document.getElementById("api");
+//       API.appendChild(divCovid);
+//     } else {
+//       console.error("'data' no está en la API");
+//     }
+//   }
+// }
+
+// XHR.addEventListener('load', manejador);
+// XHR.open('GET', URL);
+// XHR.send();

@@ -19,29 +19,60 @@ button:active {
     background-color: rgba(22, 63, 139, 0.774);
 }
 /*************************** BODY ***************************/
+
+/*HEADER*/
+
+header {
+    background-color: rgb(90, 145, 197);
+    position: sticky;
+    top: 0;
+    border-radius: 40px;
+    z-index: 10;
+    margin-top: 0.5rem;
+}
+
+header li {
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.logo {
+    width: 250px;
+}
+
+#logoPrincipal {
+    margin: 0px;
+}
+
+.navbar-ancho {
+    width: 300px;
+}
+/*MAIN*/
 body {
-    background-color: bisque;
+    background-color: lightcyan;
 }
 
 .h1-cardIndex {
     display: flex;
     justify-content: center;
+    margin: 0px;
+}
+.iconoWhatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 75px;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.divProducto{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 100%;
-}
-
+/*CARDS*/
 .divCantidad{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 50px; */
     padding: 3px;
-    margin-bottom: 3px;    
+    margin-bottom: 1px;    
     
 }
 
@@ -56,22 +87,11 @@ body {
     font-size: 18px;
 }
 
-.btnCantidad {
-    background-color: transparent;
-    height: auto;
-    width: 50px;
-    padding: 2px;
-    margin: 0px 5px;
-}
-
-.carro {
-    display: flex;
-}
+/*CARRITO*/
 
 .divCarrito {
     font-weight: 300;
     font-size: 20px;
-    background-color: lightcyan;
     padding: 2px;
     margin: 2px;
 }
@@ -79,13 +99,11 @@ body {
 
 .divCarro {
     border: 5px solid lightseagreen;
-    width: max-content;
     margin-top: 10px;
     padding: 5px;
-    box-shadow: 2px px rgba(173, 216, 230, 0.332);
+    box-shadow: 2px 10px rgba(173, 216, 230, 0.332);
     background-color: #fafafa;
-    display: flex;
-    flex-direction: column;
+    
 }
 
 #vaciarCarrito {
@@ -100,7 +118,7 @@ body {
 }
 
 #codigoDescuento {
-    width: 200px;
+    width: 400px;
     height: 30px;
     border-radius: 5px;
     background-color: lightgrey;
@@ -110,10 +128,12 @@ body {
 }
 
 #contenedorProductos {
+    height: 100%    ;
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 10px;
+    object-fit: contain;
 }
 
 .botonEliminar{
@@ -125,34 +145,16 @@ body {
 }
 
 .card {
-    margin: 20px 20px 0px;
-    width: 450px;
-    height: 450px;
+    margin-top: 20px;
+    width: 275px;
+    height: 325px;
     border: 1px solid rgba(0, 0, 0, 0.197);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.197);
     border-radius: 10px;
-    background-color: lightcyan;
+    background-color: lightyellow;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    /* transition: all 0.5s; */
-}
-
-#btnCompra{
-    background-color: lightgreen;
-    color: black
-}
-
-#btnCantidadMenos,#btnCantidadMas{
-    background-color: transparent;
-}
-
-#btnCantidadMenos:hover{
-    background-color: lightcoral;
-}
-#btnCantidadMas:hover{
-    background-color:lightskyblue
 }
 
 .card-img {
@@ -162,10 +164,6 @@ body {
     object-fit: contain;
 
 }
-
-/*  .card:hover {
-    width: 500px;
-} */
 
 .h2-card {
     font-size: 20px;
@@ -180,28 +178,272 @@ body {
 
 /************************** FOOTER   ************************/
 footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: linear-gradient(rgb(130, 190, 130), rgb(60, 169, 60) );
+    border-top: 1px rgba(0, 0, 0, 0.312) solid;
+    margin: 30px 0px 0px;
+    padding-bottom: 10px;
+
+    li {
+        text-align: center;
+        list-style: none;
+    }
+}
+
+section {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.aSection {
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: white;
+    }
+}
+
+.h2Section {
+    color: rgba(30, 80, 173, 0.774);
+}
+
+a {
+    display: inline-block;
+    color: black;
     text-align: center;
-    background-color: lightcoral;
-    margin-bottom: 0px;
-}
-
-h3 {
-    font-size: 50px;
-}
-
-.logoCoderhouse {
-    width: 20%;
-    padding: 10px;
-    justify-content: center;
+    text-decoration: none;
+    margin: 0 30px;
+    cursor: pointer;
 }
 
 
 
-/************************** PROXIMOS AGREGADOS   ************************/
-/* #formularioCuenta {
-    background-color: lightgreen;
-    padding: 20px;
-    margin: 20px;
-    border: 1px black solid;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 123);
-} */
+.menuNav {
+    border-bottom: 1px rgba(30, 80, 173, 0.774) solid;
+}
+
+.nav-item:hover {
+    font-weight: 500;
+}
+
+
+
+/************************** CONTACTO   ************************/
+
+.fondoContacto {
+  background-image: url(../img/localFachada.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  position: relative;
+
+  &::before{
+     content: "";
+    background-color: rgba(0, 0, 0, 0.79);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+
+.divFormulario {
+  align-items: center;
+  text-align: start;
+}
+
+.divFormulario h1,
+div {
+  z-index: 1;
+}
+
+.h1Contacto {
+  color: white;
+  z-index: 1;
+  font-size: 50px;
+}
+
+.h3Consulta {
+  text-align: center;
+}
+
+form {
+  margin: auto;
+  margin-bottom: 10px;
+
+  width: 400px;
+}
+
+.btnForm {
+  background-color: rgba(30, 80, 173, 0.774);
+    color: #fafafa;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: auto;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 10px;;
+  border-radius: 4px;
+  width: 200px;
+}
+/************************** 404  ************************/
+.pagina_404 {
+    padding: 40px 0;
+    background: #fff;
+    font-family: 'Arvo', serif;
+  }
+  
+  .pagina_404 img {
+    width: 100%;
+  }
+  
+  .gifError {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  
+  .gifError h1 {
+    font-size: 80px;
+  }
+  
+  .boton_404 {
+    color: #fff !important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    border-radius: 10px;
+  }
+
+
+
+  /******************Media Queries******************/
+
+/******************First Mobile******************/
+@media (min-width: 350px) and (max-width: 768px) {
+    .espacioBusqueda, .mapaSection, .divNav, .contactoSection, .serviciosSection, .divSearch {
+      display: none;
+    }
+    
+    .imgCarrousel{
+      max-height: 130px;
+    }
+
+    .areaDomicilio {
+      width: 100%;
+    }
+    
+    .fondoReserva {
+      height: auto;
+    }
+    
+    .h2Oferta, .h2Dermo {
+      text-align: center;
+    }
+    
+    .carrouselDermo{
+      max-height: 165px;
+    }
+    
+    .reserva {
+      margin-bottom: 10px;
+    }
+
+    .tituloNormas{
+      text-align: center;
+    }
+  
+    .divFormulario {
+      flex-flow: column wrap;
+      text-align: start;
+      align-items: center;
+    }
+  
+    .divConsulta {
+      padding: 0px;
+      text-align: center;
+      margin: 0px 20px;
+      margin-bottom: 20px;
+    }
+
+
+    header {
+      display: flex;
+      justify-content: center;
+    }
+  
+    form {
+      margin-bottom: 10px;
+      width: 300px;
+    }
+  
+    footer {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+    .gifError{
+      background-size: 100%;
+    }
+  }
+
+  /****************** Tablet ******************/
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .espacioBusqueda, .mapaSection, .divNav, .contactoSection {
+      display: none;
+    }
+    
+    .imgCarrousel{
+      max-height: 230px;
+    }
+
+    .carrouselDermo{
+      max-height: 180px;
+    }
+
+    .divFormulario {
+      text-align: start;
+      align-items: center;
+      margin: 0px 50px;
+    }
+  
+    .h3Consulta {
+      text-align: center;
+      font-size: 25px;
+    }
+  
+    .divConsulta {
+      padding: 0px;
+      text-align: center;
+      margin: 0px 20px 75px 20px;
+    }
+  
+    form {
+      margin-bottom: 10px;
+      width: 300px;
+    }
+  
+    footer {
+      grid-template-columns: repeat(2, 1fr);
+      height: auto;
+      align-items: center;
+    }
+  }
+
+  /****************** Ordenador ****************/
+  @media (min-width: 1025px) {
+    
+    .imgCarrousel{
+      max-height: 365px;
+    }
+
+ }
