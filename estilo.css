@@ -66,6 +66,21 @@ body {
     z-index: 10;
 }
 
+.juegoCodigo{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  border: 1px solid black;
+  width: 300px;
+}
+
+.inputCodigo{
+  width: 100px;
+  align-self: center;
+  margin-bottom: 5px;
+}
+
 /*CARDS*/
 .divCantidad{
     display: flex;

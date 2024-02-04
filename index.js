@@ -375,10 +375,9 @@ confirmarCompra.addEventListener("click", () => {
     if (result.isConfirmed) {
       Swal.fire({
         title: `¡Compra realizada con éxito! \n Realizada: ${fechaCompra}`,
-        html: `Será redirigido a la página principal en: <b></b> `,
+        html: `Será redirigido a la página de contacto en: <b></b> `,
         timer: 5000,
-        timeProgressBar: true,
-        didOpen: () => {
+                didOpen: () => {
           Swal.showLoading();
           const temporizador = Swal.getPopup().querySelector("b");
           tiempoRestante = setInterval(() => {
@@ -393,9 +392,10 @@ confirmarCompra.addEventListener("click", () => {
         text: `Fecha de compra: ${fechaCompra}`,
         icon: "success",
         backdrop: "rgba(0,0,0,0.943)"
-      }).then((result) => {
+      }).then(() => {
         if (result.dismiss === Swal.DismissReason.temporizador) {
-          console.log("I was closed by the timer");
+          window.location.href = 'html/contacto.html',
+          console.log("Redireccionando..");
         }
       });
       vaciarCarrito()
@@ -407,76 +407,17 @@ confirmarCompra.addEventListener("click", () => {
 
 /*************************************    APIs    ******************************************** */
 
-// const URL = "https://jsonplaceholder.typicode.com/posts"
-
-// const XHR = new XMLHttpRequest()
-
-// function manejador() {
-//   if (this.readyState === 4 && this.status === 200) {
-//     const DATOS = JSON.parse(this.response)
-//     console.log(DATOS)
-//     mostrarUsuarios(DATOS)
-//   }
-// }
-
-// XHR.addEventListener('load', manejador)             //'LOAD' es el evento a efectuar, "manejador" es la funcion donde efectuar la solicitud
-
-// XHR.open('get', URL);                               //Trae informacion del JSON     'GET' es el evento a efectuar, URL es donde efectuar la solicitud
-
-// XHR.send();                                         //Envia solicitud
-
-// const api = document.getElementById("api")          // Creamos funcion para mostrar usuarios
-
-// function mostrarUsuarios(DATOS) {
-//   DATOS.forEach(usuario => {
-//     const li = document.createElement("li")
-//     li.textContent = `${usuario.id} - ${usuario.title} - ${usuario.body}`
-
-//     api.appendChild(li);
-
-//   });
-// }
-
 const lista = document.getElementById('api')
-fetch('https://jsonplaceholder.typicode.com/posts')
-    .then( (resp) => resp.json() )
-    .then( (data) => {
-       
-        data.forEach((post) => {
-            const li = document.createElement('div')
-            li.innerHTML = `
-                <h4>${post.title}</h4>
-                <p>${post.body}</p>
+fetch('comentarios.json')
+  .then((resp) => resp.json())
+  .then((data) => {
+
+    data.forEach((post) => {
+      const li = document.createElement('div')
+      li.innerHTML = `
+                <h4>${post.nombre}⭐⭐⭐⭐⭐</h4>
+                <p>${post.comentario}</p>
             `
-            lista.append(li)
-        })
+      lista.append(li)
     })
-
-
-
-// const URL = 'https://covid-api.com/api/reports/total?date=2023-04-15';
-// const XHR = new XMLHttpRequest();
-
-// function manejador() {
-//   if (this.readyState === 4 && this.status === 200) {
-//     const DATOS = JSON.parse(this.responseText);
-
-//     // Verificar si la propiedad 'data' está presente
-//     if (DATOS.data) {
-//       const datosCovid = DATOS.data;
-
-//       // Mostrar información de un solo día
-//       const divCovid = document.createElement("div");
-//       divCovid.textContent = `Fecha:${datosCovid.date} - Ultima actualización:${datosCovid.last_update} - Casos activos:${datosCovid.active}`;
-
-//       const API = document.getElementById("api");
-//       API.appendChild(divCovid);
-//     } else {
-//       console.error("'data' no está en la API");
-//     }
-//   }
-// }
-
-// XHR.addEventListener('load', manejador);
-// XHR.open('GET', URL);
-// XHR.send();
+  })
