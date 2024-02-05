@@ -116,25 +116,25 @@
             </div>
         </nav>
     </nav>
-    <main>
-        <div class="juegoCodigo">
+    <main class="d-flex flex-column align-items-center mt-2">
+        <div class="juegoCodigo d-flex flex-column text-center justify-content-center p-1">
             <h2 class="h2Codigo">Jugá y ganá</h2>
-            <p class="textoCodigo">Elegí un número entre 1 y 5, acertá y ganate un CÓDIGO DE DESCUENTO del 20% </p>
+            <p class="textoCodigo">Elegí un número entre 1 y 5, acertá y ganate un <span class="fw-bold">CÓDIGO DE DESCUENTO</span> del <span class="fw-bold">20%</span> </p>
             <p class="textoCodigo">Tenés tres intentos</p>
-            <input type="number" class="inputCodigo"id="entradaUsuario" min="1" max="5">
+            <input type="number" class="inputCodigo text-center fw-bold"id="entradaUsuario" min="1" max="5">
             <button id="botonJugar" onclick="jugar()">Probar</button>
         </div>
 
-        <h1 class="h1-cardIndex fs-3 fw-bold pt-4"> Linea Ibupirac VL </h1>
+        <h1 class="h1-cardIndex fw-bold pt-4"> Linea Ibupirac VL </h1>
 
         <a href="https://api.whatsapp.com/message/PEPW73BR2VMGO1?autoload=1&app_absent=0" target="_blank"><img
                 class="iconoWhatsapp" src="img/logoWhatsapp.png" alt="Icono Whatsapp"></a>
 
-        <section>
-            <div id="contenedorProductos" class="container-fluid"></div>
+        <section class="sectionMain d-flex flex-wrap justify-content-center">
+            <div id="contenedorProductos" class="contenedorProductos container-fluid d-flex flex-wrap justify-content-center"></div>
 
-            <div class="carro d-flex mt-5">
-                <div id="carrito" class="divCarro d-flex justify-content-start">
+            <div class="divCarro d-flex justify-content-start container-fluid mt-5">
+                <div id="carrito">
                   <div>
                     <h4 class="tituloCarro">Mi carrito🛒</h4>
                     <p>Productos añadidos: <span id="productosAñadidos" class="productosAñadidos">0</span></p>
@@ -145,7 +145,7 @@
                     <p>Total: <span id="totalCarrito" class="totalCarrito">$0.00</span></p>
               
                     <label for="codigoDescuento" class="labelDescuento">Aplicar cupón al final de la compra:</label>
-                    <input type="text" id="codigoDescuento" placeholder="Ingrese código de descuento">
+                    <input type="text" id="codigoDescuento" placeholder="Ingrese código descuento">
               
                     <button id="btnDescuento" onclick="aplicarDescuento()">Aplicar</button>
               
@@ -161,7 +161,7 @@
               
               
             </div>
-            <div id="api"><h1 class="mt-5 mb-4 fw-bold text-success">Comentario de los usuarios</h1></div>
+            <div id="api" class="divComentarios border border-primary"><h1 class="mt-2 mb-4 text-center fw-bold text-primary-emphasis">Comentario de los usuarios</h1></div>
 
         </section>
     </main>

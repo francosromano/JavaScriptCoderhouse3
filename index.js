@@ -9,11 +9,21 @@ function jugar() {
 
   if (isNaN(entradaUsuario) || entradaUsuario < 1 || entradaUsuario > 5) {
     Toastify({
-      text: "Por favor, ingrese un número entre 1 y 5"
+      text: "Por favor, ingrese un número entre 1 y 5",
+      position: "center",
+      gravity: "top",
+      style: {
+        background: "rgb(218, 51, 51)",
+      }
     }).showToast()
   } else if (parseInt(entradaUsuario) === numeroGanador) {
     Toastify({
-      text: "🔥¡Felicitaciones, acertaste! El código de descuento es 'GaneElDesafio20%OFF'🔥"
+      text: "🔥¡Felicitaciones, acertaste! El código de descuento es 'GaneElDesafio20%OFF'🔥",
+      position: "center",
+      gravity: "top",
+      style:{
+        background: "rgb(60, 169, 60)"
+      }
     }).showToast()
   } else {
     if (intentosRestantes > 1) {
@@ -33,7 +43,13 @@ function jugar() {
       });
     } else {
       Toastify({
-        text: "No acertaste😥\n Se acabaron los intentos. ¡Mejor suerte la próxima vez! 👋"
+        text: "No acertaste😥\n Se acabaron los intentos. ¡Mejor suerte la próxima vez! 👋",
+        position: "center",
+        gravity: "top",
+        style:{
+          background: "rgb(60,169,60)"
+        }
+
       }).showToast();
     }
 
@@ -77,7 +93,7 @@ arrayProductos.forEach(producto => {
   div.className = "card";
   div.innerHTML = `
     <img class="card-img" src="${producto.img}" alt="">
-    <div class="divProducto">
+    <div class="divProducto d-flex flex-wrap justify-content-center container-fluid">
       <h2 class="h2-card">${producto.nombre}</h2>
       <p class="precio-card">$${producto.precio}</p>
       <div class="divCantidad">
@@ -318,7 +334,7 @@ botonAgregarCarrito.forEach((boton) => {
       gravity: top,
       position: "right",
       style: {
-        background: "linear-gradient(to left, #00b09b, #96c93d)"
+        background: "linear-gradient(to left, #96c93d)"
       }
     }).showToast()
 
